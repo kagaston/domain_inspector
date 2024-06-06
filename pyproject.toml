@@ -8,6 +8,7 @@ target-version = ["py36", "py37", "py38", "py39", "py310"]
 
 [tool.isort]
 profile = "black"
+skip = ["build", "dist", ".venv", "migrations", "tests"]
 
 [tool.mypy]
 python_version = 3.8
@@ -37,7 +38,7 @@ exclude = """
     .idea
     migrations
 """
-extend-ignore = "E203, W503"  # Compatible with black formatting
+extend-ignore = "E203, W503"
 max-complexity = 10
 select = "B, C, E, F, W, T4, B9"
 
@@ -73,6 +74,8 @@ python-dotenv = "^0.19.2"
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
 flake8 = "^3.9.2"
+flake8-bugbear = "^21.4.3"
+flake8-comprehensions = "^3.6.1"
 mypy = "^0.812"
 black = "^21.7b0"
 isort = "^5.9.3"
