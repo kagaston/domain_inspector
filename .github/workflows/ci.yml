@@ -12,19 +12,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
-
+          python-version: '3.9'
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          sudo apt-get update
-          sudo apt-get install -y build-essential
           poetry install
-
       - name: Run tests
         run: |
           pytest --junitxml=reports/junit.xml --cov=domain_inspector --cov-report=xml:reports/coverage.xml
@@ -47,12 +45,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.9'
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          sudo apt-get update
-          sudo apt-get install -y build-essential
           poetry install
       - name: Run flake8
         run: |
@@ -66,12 +65,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.9'
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          sudo apt-get update
-          sudo apt-get install -y build-essential
           poetry install
       - name: Run black
         run: |
@@ -85,12 +85,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.9'
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          sudo apt-get update
-          sudo apt-get install -y build-essential
           poetry install
       - name: Run isort
         run: |
@@ -104,12 +105,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.9'
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          sudo apt-get update
-          sudo apt-get install -y build-essential
           poetry install
       - name: Run mypy
         run: |
@@ -123,12 +125,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
+          python-version: '3.9'
+      - name: Install Poetry
+        run: |
+          python -m pip install --upgrade pip
+          pip install poetry
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          sudo apt-get update
-          sudo apt-get install -y build-essential
           poetry install
       - name: Run bandit
         run: |
