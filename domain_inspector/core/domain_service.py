@@ -11,6 +11,8 @@ class DomainService:
         for domain_name in domain_names:
             whois_data = get_domain_data(domain_name)
             if isinstance(whois_data, str):
-                raise ValueError(f"Error fetching WHOIS data for {domain_name}: {whois_data}")
+                raise ValueError(
+                    f"Error fetching WHOIS data for {domain_name}: {whois_data}"
+                )
             domain_info_list.append(WhoisData.from_dict(whois_data))
         return domain_info_list

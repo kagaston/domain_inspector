@@ -12,9 +12,11 @@ from domain_inspector.settings import settings
 
 class Config:
     def __init__(self):
-        self.database_url = self.get_config_value('DATABASE_URL', 'sqlite:///default_database.db')
-        self.secret_key = self.get_config_value('SECRET_KEY', 'defaultsecretkey')
-        self.debug = self.get_config_value('DEBUG', 'False')
+        self.database_url = self.get_config_value(
+            "DATABASE_URL", "sqlite:///default_database.db"
+        )
+        self.secret_key = self.get_config_value("SECRET_KEY", "defaultsecretkey")
+        self.debug = self.get_config_value("DEBUG", "False")
 
     @staticmethod
     def get_config_value(key, default=None):
@@ -22,7 +24,7 @@ class Config:
         if value is not None:
             return value
 
-        section, option = key.lower().split('_', 1)
+        section, option = key.lower().split("_", 1)
         if settings.conf.has_option(section, option):
             return settings.conf.get(section, option)
 
