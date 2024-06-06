@@ -1,0 +1,83 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ['py36', 'py37', 'py38', 'py39', 'py310']
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+python_version = 3.8
+warn_unused_configs = True
+warn_return_any = True
+strict_optional = True
+disallow_untyped_defs = True
+disallow_incomplete_defs = True
+ignore_missing_imports = True
+exclude = """
+    build
+    dist
+    .venv
+    migrations
+    tests
+"""
+
+[tool.flake8]
+max-line-length = 88
+exclude = """
+    .git
+    __pycache__
+    build
+    dist
+    .venv
+    .vscode
+    .idea
+    migrations
+"""
+extend-ignore = E203, W503  # Compatible with black formatting
+max-complexity = 10         # Maximum McCabe complexity allowed
+select = B, C, E, F, W, T4, B9  # Select specific error/warning codes
+
+[tool.bandit]
+exclude_dirs = [
+    "build",
+    "dist",
+    ".venv",
+    "migrations",
+    "tests"
+]
+skips = [
+    "B101"  # Assert statements
+]
+
+[tool.poetry]
+name = "domain_inspector"
+version = "0.1.0"
+description = "A tool to fetch and analyze domain information"
+authors = ["Kody Gaston <kody.gaston@msn.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/kagaston/domain_inspector"
+repository = "https://github.com/kagaston/domain_inspector"
+keywords = ["domain", "whois", "inspection", "analysis"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+whois = "^0.9.13"
+pendulum = "^2.1.2"
+python-dotenv = "^0.19.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.4"
+flake8 = "^3.9.2"
+mypy = "^0.812"
+black = "^21.7b0"
+isort = "^5.9.3"
+bandit = "^1.7.0"
+pre-commit = "^2.15.0"
+
+[tool.gitleaks]
+config-path = ".gitleaks.toml"

@@ -1,0 +1,40 @@
+# Bandit configuration file
+
+# Directories to exclude from scanning
+exclude_dirs:
+  - build
+  - dist
+  - .venv
+  - migrations
+  - tests
+
+# Tests to exclude from scanning
+skips:
+  - B101  # Assert statements
+
+# Plugin configuration
+plugin_config:
+  blacklist_calls:
+    bad_name_sets:
+      # Call blacklist: set comprehension with certain dangerous functions
+      bad_functions:
+        - pickle.loads
+        - pickle.load
+        - cPickle.loads
+        - cPickle.load
+        - marshal.loads
+        - marshal.load
+        - shelve.open
+        - shelve.DbfilenameShelf
+        - shelve.BsdDbShelf
+
+# Severity and confidence levels to include
+severity:
+  - LOW
+  - MEDIUM
+  - HIGH
+
+confidence:
+  - LOW
+  - MEDIUM
+  - HIGH
