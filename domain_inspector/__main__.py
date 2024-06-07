@@ -16,7 +16,6 @@ def main():
         print("Debug mode is off")
 
     domain_names = [
-        "block.xyz",
         "example.com",
     ]  # List of domains to fetch information for
     domain_service = DomainService()

@@ -8,7 +8,7 @@
 [![Mypy](https://github.com/kagaston/domain_inspector/actions/workflows/ci.yml/badge.svg?event=push&job=mypy)](https://github.com/kagaston/domain_inspector/actions/workflows/ci.yml?query=job%3Amypy) | 
 [![Bandit](https://github.com/kagaston/domain_inspector/actions/workflows/ci.yml/badge.svg?event=push&job=bandit)](https://github.com/kagaston/domain_inspector/actions/workflows/ci.yml?query=job%3Abandit) 
 
-![Python Version](https://img.shields.io/badge/python-3.8%20|%203.9%20|%203.10|%203.11-blue)
+![Python Version](https://img.shields.io/badge/python-3.9%20|%203.10|%203.11-blue)
 
 ## Overview
 
